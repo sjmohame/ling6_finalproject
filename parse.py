@@ -5,7 +5,11 @@
 ##############################
 
 import requests
+import re
+from nltk.stem.porter import PorterStemmer
 from bs4 import BeautifulSoup
+
+porter = PorterStemmer()
 
 
 def getSoup(url):
@@ -90,3 +94,15 @@ def getNounChunks(user_review):
     noun_chunks_strlist = [chunk.text for chunk in noun_chunks]
 
     return noun_chunks_strlist
+
+def preprocessor(text):
+    text =re.sub('<[^>]*>', '', text)
+    emoticons = re.findall('(?::|;|=)(?:-)?(?:\)|\(|D|P)', text)
+    text = re.sub('[\W]+', ' ', text.lower()) + ' '.join(emoticons).replace('-', '')
+    return text
+
+def tokenizer(text):
+    return text.split()
+
+def tokenizer_stemmer(text):
+    return[porter.stem(word) for word in text.split()]

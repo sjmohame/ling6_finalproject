@@ -73,13 +73,13 @@ bag = count.fit_transform(userReviewDF)
 tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
 print(tfidf.fit_transform(bag).toarray())
 
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(lowercase=True, max_features=100)
 X = vectorizer.fit_transform(userReviewDF)
 indices = np.argsort(vectorizer.idf_)[::-1]
 features = vectorizer.get_feature_names()
 top_n = 10
 top_features = [features[i] for i in indices[:top_n]]
-print(top_features)
+print(features)
 #print(features)
 
 

@@ -25,7 +25,7 @@ movie_links[:10]
 # get a list of soup objects
 movie_soups = [getSoup(link) for link in movie_links]
 
-# get all 500 movie review links
+# get all movie review links
 # movie_review_list = [getReviews(movie_soup) for movie_soup in movie_soups]
 movie_review_list = []
 for movie_soup in movie_soups :
@@ -48,7 +48,7 @@ review_sentiment = np.array(['negative', 'positive'] * (len(movie_review_list)//
 
 # construct a dataframe
 df = pd.DataFrame({'movie': movie_titles, 'user_review_permalink': movie_review_list,
-             'user_review': review_texts, 'sentiment': review_sentiment})
+             'user_review': review_texts})
 
 df.head()
 
@@ -80,7 +80,7 @@ features = vectorizer.get_feature_names()
 top_n = 10
 top_features = [features[i] for i in indices[:top_n]]
 print(top_features)
-print(features)
+#print(features)
 
 
 

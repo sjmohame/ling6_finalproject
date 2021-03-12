@@ -57,10 +57,9 @@ def getReviews(soup):
     p_review_link = "https://www.imdb.com" + p_review_tag['href']
 
     # return random list of reviews
-    ran_list = random.sample(user_review_list, 20)
-    #print(ran_list)
-    # print(n_review_link)
-    for i in range(20):
+    ran_list = random.sample(user_review_list, 25)
+
+    for i in range(25):
         curr = ran_list[i]
         ran_list[i] = "https://www.imdb.com" + curr['href']
     return ran_list

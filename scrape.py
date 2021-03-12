@@ -26,8 +26,10 @@ movie_links[:10]
 movie_soups = [getSoup(link) for link in movie_links]
 
 # get all 500 movie review links
-movie_review_list = [getReviews(movie_soup) for movie_soup in movie_soups]
-
+# movie_review_list = [getReviews(movie_soup) for movie_soup in movie_soups]
+movie_review_list = []
+for movie_soup in movie_soups :
+    movie_review_list.append(getReviews(movie_soup))
 movie_review_list = list(itertools.chain(*movie_review_list))
 print(len(movie_review_list))
 
@@ -64,8 +66,8 @@ df.to_pickle('userReviews.pkl')
 userReviewDF = df['user_review']    #Data frame of only user reviews 
 count = CountVectorizer()
 bag = count.fit_transform(userReviewDF)
-print(count.vocabulary_)    #prints array with corresponding frequency
-print(bag.toarray())        #prints out # of times word at index appears
+#print(count.vocabulary_)    #prints array with corresponding frequency
+#print(bag.toarray())        #prints out # of times word at index appears
 
 #weighing importance of words based on frequency
 tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
@@ -78,6 +80,7 @@ features = vectorizer.get_feature_names()
 top_n = 10
 top_features = [features[i] for i in indices[:top_n]]
 print(top_features)
+print(features)
 
 
 

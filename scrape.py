@@ -17,7 +17,8 @@ np.set_printoptions(precision=2)
 
 base_url = "https://www.imdb.com"
 movie_tags = ['/title/tt0097757/', '/title/tt0103639/', '/title/tt0101414/', '/title/tt0110357/','/title/tt0120762/']
-movie_links = [base_url + tag + 'reviews' for tag in movie_tags]
+movie_tags2 = ['/title/tt0096283/', '/title/tt0245429/', '/title/tt0347149/', '/title/tt0097814/', '/title/tt0095327/']
+movie_links = [base_url + tag + 'reviews' for tag in movie_tags2]
 print("There are a total of " + str(len(movie_links)) + " movie user reviews")
 print("Displaying 10 user reviews links")
 movie_links[:10]
@@ -53,7 +54,7 @@ df = pd.DataFrame({'movie': movie_titles, 'user_review_permalink': movie_review_
 df.head()
 
 # save the dataframe to a csv file.
-df.to_csv('userReviews.csv', index=False)
+df.to_csv('userReviews2.csv', index=False)
 
 # pickle the dataframe
 df.to_pickle('userReviews.pkl')

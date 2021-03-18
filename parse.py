@@ -36,7 +36,7 @@ def minMax(a):
 
 
 def getReviews(soup):
-    '''Function returns a negative and positive review for each movie.'''
+    '''Originally returned highest and lowest review by rating, edited to return 25 random reviews.'''
 
     # get a list of user ratings
     user_review_ratings = [tag.previous_element for tag in

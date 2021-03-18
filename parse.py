@@ -102,6 +102,12 @@ def getNounChunks(user_review):
 
     return noun_chunks_strlist
 
+##################
+    # Source: "Performing Sentiment Analysis on Movie Reviews"
+    # Author: "Bryan Tan"
+    # Link: "https://towardsdatascience.com/imdb-reviews-or-8143fe57c825"
+##################
+
 def preprocessor(text):
     text =re.sub('<[^>]*>', '', text)
     emoticons = re.findall('(?::|;|=)(?:-)?(?:\)|\(|D|P)', text)

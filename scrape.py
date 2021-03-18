@@ -86,7 +86,6 @@ vectorizer = TfidfVectorizer(lowercase=True, max_features=100) #Uses TDIDF to do
 y = vectorizer.fit_transform(userReviewDF)                     
 commonWords = vectorizer.get_feature_names()                      #Get the keys for each of the top 100 words
 print(commonWords)                                                #Print them out as a list to the terminal
-#print(features)
 
 
 
